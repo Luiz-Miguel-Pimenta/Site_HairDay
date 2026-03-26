@@ -3,14 +3,17 @@
   "description": "Aplicação Web para agedamento de corte de cabelo.",
   "author": "Luiz Miguel Nunes Pimenta",
   "scripts": {
-    "server": "json-server --watch server.json --port 3333",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack server",
+    "server": "json-server --watch server.json --port 3333"
   },
   "dependencies": {
     "json-server": "^1.0.0-alpha.21"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^5.6.0",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
