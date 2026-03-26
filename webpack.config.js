@@ -6,12 +6,13 @@ const path = require("path");
 
 const HtmlwebpackPlugin = require("html-webpack-plugin"); //Importa o plugin HTML-webpack
 
+const CopyWebpackPlugin = require("copy-webpack-plugin"); //Importa o plugin Copy-webpack
+
 /*
   Essa linha importa um módulo nativo do Node.js chamado path. Ele serve 
   para lidar com caminhos de pastas e arquivos de forma que funcione tanto 
   no Windows quanto no Linux/Mac, evitando erros de barras invertidas (\) ou normais (/).
 */
-
 module.exports = {
   target: "web", //Informa ao Webpack que o código que ele vai gerar é para rodar em um navegador (web).
 
@@ -60,6 +61,14 @@ module.exports = {
       template: path.resolve(__dirname, "index.html"),
       favicon: path.resolve("src", "assets", "scissors.svg"), //Coloca o ícone do projeto no titúlo da página.
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "assets"), // Vai até a pasta src/assets e pega tudo o que está lá dentro.
+          to: path.resolve(__dirname, "dist", "src", "assets"), // Leva esses arquivos e cola eles exatamente nesse caminho dentro da pasta dist.
+        },
+      ],
+    }),
   ],
 
 
@@ -82,6 +91,18 @@ module.exports = {
           css-loader: Ele lê o conteúdo do arquivo CSS e o transforma em uma string dentro do JavaScript. 
           style-loader: Ele pega essa string e a injeta dentro de uma tag <style> no cabeçalho do site para o estilo aparecer na tela.
         */
+      },
+      {
+        // Toda vez que o Webpack encontrar um arquivo JS, passe ele para o Babel 'traduzir' antes de colocá-lo na pasta final.
+
+        test: /\.js$/, // É o filtro. Essa expressão regular diz ao Webpack: "Olhe para todos os arquivos que terminam com a extensão .js"
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
     ],
   },
