@@ -8,6 +8,9 @@ export function hoursLoad({ date }){
 
     const opening = openingHours.map((hour) => {
 
+        //Limpa a lista de horários
+        hours.innerHTML = "";
+
         // Recupera somente a hora. Pega apenas o primeiro valor do array (Ex: "09") e guarda na variável "scheduleHour";
         const [scheduleHour] = hour.split(":");
 
