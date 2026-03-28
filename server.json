@@ -1,3 +1,9 @@
 {
-    "schedules": []
+  "schedules": [
+    {
+      "id": 1774699955139,
+      "name": "Luiz Miguel",
+      "when": "2026-03-30T17:00:00.000Z"
+    }
+  ]
 }
