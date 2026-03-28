@@ -1,14 +1,14 @@
 {
   "schedules": [
     {
-      "id": "1774699955139",
-      "name": "Luiz Miguel Nunes Pimenta",
+      "id": "1774730106117",
+      "name": "Renata Nunes",
       "when": "2026-03-30T17:00:00.000Z"
     },
     {
-      "id": 1774711147715,
+      "id": "1774730124801",
       "name": "Miguel Martins",
-      "when": "2026-03-31T18:00:00.000Z"
+      "when": "2026-03-29T15:00:00.000Z"
     }
   ]
 }
