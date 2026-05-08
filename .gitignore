@@ -1,1 +1,17 @@
-node_modules
+# Dependências
+node_modules/
+
+# Pasta de build (Produção)
+dist/
+
+# Logs e Cache
+npm-debug.log*
+.eslintcache
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Variáveis de ambiente (Segurança)
+.env
+.env.local
